@@ -1,5 +1,8 @@
 /*
-!/.gitignore
-!/vimrc
 !/autoload/
+!/layers/
 !/plugin/
+
+!/.gitignore
+!/coc-settings.json
+!/vimrc
