@@ -2,6 +2,7 @@
 !/autoload/
 !/layers/
 !/plugin/
+!/UltiSnips/
 
 !/.gitignore
 !/coc-settings.json

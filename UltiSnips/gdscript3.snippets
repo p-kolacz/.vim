@@ -1,0 +1,26 @@
+snippet cn "class_name" b
+class_name $0
+endsnippet
+
+snippet ready "ready" b
+func _ready():
+	$0
+endsnippet
+
+snippet process "process" b
+func _process():
+	$0
+endsnippet
+
+snippet = "print"
+print($0)
+endsnippet
+
+snippet sc "connect signal" b
+signals.connect("$1", self, "$2")$0
+endsnippet
+
+snippet es "emit signal" b
+signals.emit_signal("$1")$0
+endsnippet
+
