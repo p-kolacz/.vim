@@ -1,7 +1,7 @@
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
+" inoremap <silent><expr> <c-space> coc#refresh()
 
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.

@@ -5,7 +5,6 @@ augroup vimrc
 augroup END
 
 "Layers of Vim
-" let $LAYERS=fnamemodify(expand($MYVIMRC), ':h').'/layers'
 call plug#begin('~/.vim/plugged')
 
 " Apperance
@@ -29,10 +28,12 @@ call plug#begin('~/.vim/plugged')
 	runtime layers/ale.vim
 	runtime layers/coc.vim
 	runtime layers/ultisnips.vim
+	runtime layers/figlet.vim
 
 " Languages
 	Plug 'nvie/vim-flake8'
 	runtime layers/gdscript3.vim
+	runtime layers/json.vim
 	runtime layers/markdown.vim
 	" Plug 'sheerun/vim-polyglot'
 
@@ -41,6 +42,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'vim-voom/VOoM'
 
 call plug#end()
+
 colorscheme OceanicNext
 
 nnoremap <leader>ppi :PlugInstall<CR>
@@ -68,7 +70,7 @@ nnoremap <leader>ppc :PlugClean<CR>
 " Formating
 	set noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
 	" c - autowrap comments, r - insert comments at <cr>, o - comment after o/O
-	" autocmd vimrc FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+	autocmd vimrc FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Folding
 	set nofoldenable foldmethod=indent
@@ -86,6 +88,8 @@ nnoremap <leader>ppc :PlugClean<CR>
 	set wildmenu
 	set showmatch showcmd
 	set listchars=tab:→\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨
+	" set fillchars+=vert:┋
+	set fillchars+=vert:│
 
 " Auto save on blur
 	autocmd vimrc FocusLost * :wa
@@ -94,6 +98,9 @@ nnoremap <leader>ppc :PlugClean<CR>
 " Bindings
 	inoremap jj <Esc>
 	inoremap kk <Esc>
+	inoremap jk <Esc>
+	" Ctrl-space
+	inoremap <C-@> _
 	nnoremap <space> <nop>
 	nnoremap <F12> :e $MYVIMRC<CR>
 	nnoremap <C-F12> :source $MYVIMRC<CR>
@@ -106,10 +113,10 @@ nnoremap <leader>ppc :PlugClean<CR>
 	nnoremap <C-k> <C-w>k
 	nnoremap <C-l> <C-w>l
 
-	nnoremap H <C-w>H
-	nnoremap J <C-w>J
-	nnoremap K <C-w>K
-	nnoremap L <C-w>L
+	" nnoremap H <C-w>H
+	" nnoremap J <C-w>J
+	" nnoremap K <C-w>K
+	" nnoremap L <C-w>L
 
 	nnoremap h <C-w>8<
 	nnoremap j <C-w>8+
@@ -124,12 +131,10 @@ nnoremap <leader>ppc :PlugClean<CR>
 	nnoremap <leader>h :h<space>
 	nnoremap <leader>dw df_
 	nnoremap <leader>cw ct_
+	nmap <leader>dc yypkgccj
 	nnoremap <leader>os :set spell!<CR>
-	nnoremap <leader>ow :set list!<CR>
+	nnoremap <leader>ol :set list!<CR>
 	nnoremap <leader>cs :%s/\s\+$//e<CR>
-	nnoremap <leader>ff :.!figlet \| sed 's/ *$//g'<CR>
-	nnoremap <leader>fr :.!figlet -f rectangles \| sed 's/ *$//g'<CR>
-	nnoremap <leader>fs :.!figlet -f small \| sed 's/ *$//g'<CR>
 
 " Auto commands
 	autocmd vimrc BufWritePost vimrc source $MYVIMRC
