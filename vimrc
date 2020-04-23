@@ -15,8 +15,9 @@ call plug#begin('~/.vim/plugged')
 
 " Navigation
 	runtime layers/nerdtree.vim
-	runtime layers/ctrlp.vim
-	runtime layers/ag.vim
+	" runtime layers/ctrlp.vim
+	" runtime layers/ag.vim
+	runtime layers/fzf.vim
 
 " General coding
 	Plug 'tpope/vim-surround'
@@ -26,7 +27,8 @@ call plug#begin('~/.vim/plugged')
 	runtime layers/commentary.vim
 	runtime layers/fugitive.vim
 	runtime layers/ale.vim
-	runtime layers/coc.vim
+	runtime layers/mucomplete.vim
+	" runtime layers/coc.vim
 	runtime layers/ultisnips.vim
 	runtime layers/figlet.vim
 
@@ -36,10 +38,14 @@ call plug#begin('~/.vim/plugged')
 	runtime layers/json.vim
 	runtime layers/markdown.vim
 	" Plug 'sheerun/vim-polyglot'
+	runtime layers/fish.vim
+	Plug 'ap/vim-css-color'
 
 " Tools
 	Plug 'freitass/todo.txt-vim'
 	Plug 'vim-voom/VOoM'
+	Plug 'chrisbra/unicode.vim'
+	Plug 'vifm/vifm.vim'
 
 call plug#end()
 
@@ -80,7 +86,11 @@ nnoremap <leader>ppc :PlugClean<CR>
 
 " Apperance
 	syntax on
-	set termguicolors
+	if (has("termguicolors"))
+		let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+		let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+		set termguicolors
+	endif
 	set t_ut=""		"fix for scrolling background
 	set nowrap
 	set number relativenumber
@@ -113,11 +123,6 @@ nnoremap <leader>ppc :PlugClean<CR>
 	nnoremap <C-k> <C-w>k
 	nnoremap <C-l> <C-w>l
 
-	" nnoremap H <C-w>H
-	" nnoremap J <C-w>J
-	" nnoremap K <C-w>K
-	" nnoremap L <C-w>L
-
 	nnoremap h <C-w>8<
 	nnoremap j <C-w>8+
 	nnoremap k <C-w>8-
@@ -128,7 +133,7 @@ nnoremap <leader>ppc :PlugClean<CR>
 	nnoremap <leader>q :q<CR>
 	nnoremap <leader>Q :wq<CR>
 	nnoremap <leader>e :e<space>
-	nnoremap <leader>h :h<space>
+	" nnoremap <leader>h :h<space>
 	nnoremap <leader>dw df_
 	nnoremap <leader>cw ct_
 	nmap <leader>dc yypkgccj
