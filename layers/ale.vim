@@ -5,5 +5,8 @@ let g:ale_sign_warning = '⚠'
 let g:ale_gdscript3_godotheadless_executable='godot-headless' 
 " let g:ale_completion_enabled = 1
 
-nmap <leader>np <Plug>(ale_previous_wrap)
-nmap <leader>ne <Plug>(ale_next_wrap)
+call Desc('e', '+Errors')
+nmap <leader>ep <Plug>(ale_previous_wrap)
+call Desc('e.p', 'previous error')
+nmap <leader>en <Plug>(ale_next_wrap)
+call Desc('e.n', 'next error')
