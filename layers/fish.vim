@@ -1,4 +1,6 @@
 Plug 'blankname/vim-fish'
+" Plug 'Stautob/vim-fish'
+
 " Set up :make to use fish for syntax checking.
 " autocmd vimrc FileType fish compiler fish
 

@@ -11,7 +11,7 @@ Plug 'vim-airline/vim-airline-themes'
 
 let g:airline_powerline_fonts = 1
 " autocmd vimrc VimEnter * :AirlineTheme zenburn
-let g:airline_theme = 'deus'
+let g:airline_theme = 'gruvbox'
 " autocmd vimrc VimEnter * let g:airline_theme = 'deus'
 let g:airline_section_z = '%l/%L:%2v'
 

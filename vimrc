@@ -14,14 +14,16 @@ call plug#begin('~/.vim/plugged')
 	runtime layers/desc.vim
 	runtime layers/which-key.vim
 	
-" Apperance
+" Appearance
 	Plug 'wincent/terminus'
 	runtime layers/airline.vim
-	Plug 'bluz71/vim-nightfly-guicolors'
+	" Plug 'bluz71/vim-nightfly-guicolors'
 	Plug 'ryanoasis/vim-devicons'
+	runtime layers/themes/gruvbox.vim
 
 " Navigation
 	" runtime layers/nerdtree.vim
+	runtime layers/netrw.vim
 	runtime layers/fzf.vim
 	runtime layers/open-browser.vim
 
@@ -33,7 +35,7 @@ call plug#begin('~/.vim/plugged')
 	runtime layers/commentary.vim
 	runtime layers/fugitive.vim
 	runtime layers/ale.vim
-	runtime layers/mucomplete.vim
+	runtime layers/coc.vim
 	runtime layers/ultisnips.vim
 	runtime layers/figlet.vim
 
@@ -63,8 +65,6 @@ call which_key#register('<Space>', "g:which_key_map")
 	scriptencoding utf-8
 	set fileformats=unix
 	language messages en_US.utf8
-	" set langmenu=en_US.utf8
-	" let $LANG='en_US'
 	set autoread
 	set belloff=all
 	set backspace=indent,eol,start
@@ -86,16 +86,25 @@ call which_key#register('<Space>', "g:which_key_map")
 " Searching
 	set ignorecase smartcase incsearch
 
-" Apperance
+" Appearance
 	syntax on
+	" Enable underline & undercurl
+	let &t_Cs = "\e[4:3m"
+	let &t_Ce = "\e[4:0m"
 	if (has("termguicolors"))
-		let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-		let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+		if &term == "alacritty"
+			let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+			let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+		endif
 		set termguicolors
 	endif
-	colorscheme nightfly
+	execute 'colorscheme '.g:colorscheme
 
-	" set t_ut=""		"fix for scrolling background
+	if &term == "xterm-kitty"
+		"fix for scrolling background
+		set t_ut=""
+	endif
+
 	set nowrap
 	set number relativenumber
 	set signcolumn=yes
@@ -159,6 +168,8 @@ call which_key#register('<Space>', "g:which_key_map")
 	call Desc('o.s', 'spell')
 	nnoremap <leader>ol :set list!<CR>
 	call Desc('o.l', 'list')
+	nnoremap <leader>on :set relativenumber! number!<CR>
+	call Desc('o.n', 'line numbers')
 	nnoremap <leader>tcs :%s/\s\+$//e<CR>
 	call Desc('t.cs', 'remove trailing spaces')
 

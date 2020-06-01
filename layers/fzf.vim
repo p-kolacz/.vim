@@ -1,7 +1,7 @@
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 
-" let $FZF_DEFAULT_COMMAND="rg --files -g '*.gd'"
+let $FZF_DEFAULT_COMMAND="rg --files --hidden -g '!.git'"
 
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
