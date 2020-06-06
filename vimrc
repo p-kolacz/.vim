@@ -29,7 +29,7 @@ call plug#begin('~/.vim/plugged')
 
 " General coding
 	Plug 'tpope/vim-surround'
-	Plug 'tpope/vim-eunuch'
+	Plug 'tpope/vim-eunuch'		" Filesystem operations
 	Plug 'tpope/vim-repeat'
 	Plug 'michaeljsmith/vim-indent-object'
 	runtime layers/commentary.vim
@@ -45,6 +45,8 @@ call plug#begin('~/.vim/plugged')
 	" runtime layers/json.vim
 	runtime layers/markdown.vim
 	runtime layers/fish.vim
+	runtime layers/webdev.vim
+	runtime layers/sxhkd.vim
 	" Plug 'ap/vim-css-color'
 	" Plug 'vim-scripts/dbext.vim'
 
@@ -103,6 +105,8 @@ call which_key#register('<Space>', "g:which_key_map")
 	if &term == "xterm-kitty"
 		"fix for scrolling background
 		set t_ut=""
+		" fix for devicons and glitches
+		set t_RV=
 	endif
 
 	set nowrap
@@ -119,7 +123,9 @@ call which_key#register('<Space>', "g:which_key_map")
 	" :autocmd vimrc FocusLost * silent! wa
 
 " Mouse
-	set ttymouse=sgr	" Fixes mouse in alacritty
+	if &term == "alacritty"
+		set ttymouse=sgr	" Fixes mouse in alacritty
+	endif
 
 " Bindings
 	inoremap jj <Esc>

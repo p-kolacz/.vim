@@ -1,8 +1,9 @@
 Plug 'gruvbox-community/gruvbox'
 let g:colorscheme='gruvbox'
 let g:gruvbox_italic=1
+let g:airline_theme = 'gruvbox'
 
-let g:gruvbox_contrast_dark='hard'	" soft medium hard
+" let g:gruvbox_contrast_dark='hard'	" soft medium hard
 set background=dark
 
 " let g:gruvbox_underline=1

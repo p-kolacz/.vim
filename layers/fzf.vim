@@ -21,3 +21,7 @@ let g:fzf_colors =
 nnoremap <C-p> :Files<cr>
 nnoremap <C-f> :Rg<cr>
 
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --hidden --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview(), <bang>0)

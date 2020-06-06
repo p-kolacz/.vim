@@ -13,7 +13,7 @@ let g:polyglot_disabled = ['markdown']
 " Plug 'gabrielelana/vim-markdown'
 
 " autocmd vimrc Filetype markdown nnoremap <buffer> <leader>hh yyp<c-v>$r=
-autocmd vimrc Filetype markdown nnoremap <buffer> <leader>hh o<esc>80i=<esc>
+autocmd vimrc Filetype markdown nnoremap <buffer> <leader>hh o<esc>80i=<esc>o<esc>
 autocmd vimrc Filetype markdown nnoremap <buffer> <leader>h2 yyp<c-v>$r-
 
 " Run code in fences
