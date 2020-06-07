@@ -1,7 +1,7 @@
-noremap <space> <nop>
+" noremap <space> <nop>
 let mapleader=' '
+let maplocalleader=','
 set shell=bash
-" let maplocalleader=' '
 augroup vimrc
 	autocmd!
 augroup END
@@ -42,19 +42,19 @@ call plug#begin('~/.vim/plugged')
 " Languages
 	Plug 'nvie/vim-flake8'
 	runtime layers/gdscript3.vim
-	" runtime layers/json.vim
 	runtime layers/markdown.vim
 	runtime layers/fish.vim
 	runtime layers/webdev.vim
 	runtime layers/sxhkd.vim
+	runtime layers/json.vim
 	" Plug 'ap/vim-css-color'
 	" Plug 'vim-scripts/dbext.vim'
 
 " Tools
 	Plug 'freitass/todo.txt-vim'
 	Plug 'vim-voom/VOoM'
-	" Plug 'chrisbra/unicode.vim'
 	Plug 'vifm/vifm.vim'
+	" Plug 'chrisbra/unicode.vim'
 
 call plug#end()
 
@@ -70,7 +70,7 @@ call which_key#register('<Space>', "g:which_key_map")
 	set autoread
 	set belloff=all
 	set backspace=indent,eol,start
-	set viminfo+='1000,n$XDG_DATA_HOME/vim/viminfo
+	set viminfo+='1000,n$XDG_DATA_HOME/viminfo
 	set splitbelow splitright
 	filetype plugin indent on
 	set exrc secure		" Enables the reading of .vimrc, .exrc and .gvimrc in the current directory.

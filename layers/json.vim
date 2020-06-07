@@ -1,2 +1,3 @@
-Plug 'elzr/vim-json'
-nnoremap <leader>tj :%!python -m json.tool<cr>
+" Plug 'elzr/vim-json'
+
+autocmd vimrc FileType json nnoremap <buffer> <localleader>p :%!python -m json.tool<cr>

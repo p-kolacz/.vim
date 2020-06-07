@@ -19,7 +19,22 @@ let g:fzf_colors =
   \ 'header':  ['fg', 'Comment'] }
 
 nnoremap <C-p> :Files<cr>
-nnoremap <C-f> :Rg<cr>
+
+nnoremap <leader>fr :History<CR>
+call Desc('f.r', 'recent')
+nnoremap <leader>pf :Rg<cr>
+call Desc('p.f', 'find in files')
+
+nnoremap <leader>vm :Maps<CR>
+call Desc('v.m', 'nmaps')
+nnoremap <leader>vh :History:<CR>
+call Desc('v.h', 'commands history')
+nnoremap <leader>vs :History/<CR>
+call Desc('v.s', 'search history')
+nnoremap <leader>vc :Commands<CR>
+call Desc('v.c', 'commands')
+nnoremap <leader>vf :Filetypes<CR>
+call Desc('v.f', 'filetypes')
 
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(

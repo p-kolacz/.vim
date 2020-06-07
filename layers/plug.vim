@@ -1,8 +1,9 @@
-call Desc('p', '+Plugins')
-nnoremap <leader>pi :PlugInstall<CR>
-call Desc('p.i', 'install')
-nnoremap <leader>pu :PlugUpdate<CR>
-call Desc('p.u', 'update')
-nnoremap <leader>pc :PlugClean<CR>
-call Desc('p.c', 'cleanup')
+call Desc('v.p', '+Plugins')
+
+nnoremap <leader>vpi :PlugInstall<CR>
+call Desc('v.p.i', 'install')
+nnoremap <leader>vpu :PlugUpdate<CR>
+call Desc('v.p.u', 'update')
+nnoremap <leader>vpc :PlugClean<CR>
+call Desc('v.p.c', 'cleanup')
 

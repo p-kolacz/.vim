@@ -13,8 +13,8 @@ Plug 'mattn/emmet-vim'
 	" let g:user_emmet_mode='a'    "enable all function in all mode.
 
 " Enable just for html/css
-" let g:user_emmet_install_global = 0
-	" autocmd FileType html,css EmmetInstall
+	let g:user_emmet_install_global = 0
+	autocmd FileType html,css EmmetInstall
 
 " Redefine trigger key
 " To remap the default <C-Y> leader:
