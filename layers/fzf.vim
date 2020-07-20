@@ -20,8 +20,8 @@ let g:fzf_colors =
 
 nnoremap <C-p> :Files<cr>
 
-nnoremap <leader>fr :History<CR>
-call Desc('f.r', 'recent')
+nnoremap <leader>fh :History<CR>
+call Desc('f.h', 'history')
 nnoremap <leader>pf :Rg<cr>
 call Desc('p.f', 'find in files')
 

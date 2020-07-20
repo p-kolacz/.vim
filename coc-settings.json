@@ -1,3 +1,10 @@
 {
-	"suggest.noselect": false
+	"suggest.noselect": false,
+	"languageserver": {
+		"godot": {
+			"host": "127.0.0.1",
+			"filetypes": ["gdscript", "gdscript3"],
+			"port": 6008
+		}
+	}
 }

@@ -3,8 +3,10 @@
 !/autoload/
 !/layers/
 !/plugin/
+!/spell/
 !/UltiSnips/
 
 !/.gitignore
 !/coc-settings.json
+!/filetype.vim
 !/vimrc

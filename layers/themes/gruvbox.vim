@@ -6,6 +6,9 @@ let g:airline_theme = 'gruvbox'
 " let g:gruvbox_contrast_dark='hard'	" soft medium hard
 set background=dark
 
+" use colors for underlines and strikethroughs
+let g:gruvbox_guisp_fallback="fg"
+
 " let g:gruvbox_underline=1
 " let g:gruvbox_undercurl=1
 

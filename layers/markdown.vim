@@ -6,6 +6,8 @@
 " https://github.com/tpope/vim-markdown
 " https://github.com/plasticboy/vim-markdown
 
+Plug 'dkarter/bullets.vim'
+
 let g:markdown_fenced_languages =  ['html', 'css', 'php', 'sh']
 
 let g:polyglot_disabled = ['markdown']
@@ -13,8 +15,8 @@ let g:polyglot_disabled = ['markdown']
 " Plug 'gabrielelana/vim-markdown'
 
 " autocmd vimrc Filetype markdown nnoremap <buffer> <leader>hh yyp<c-v>$r=
-autocmd vimrc Filetype markdown nnoremap <buffer> <leader>hh o<esc>80i=<esc>o<esc>
-autocmd vimrc Filetype markdown nnoremap <buffer> <leader>h2 yyp<c-v>$r-
+autocmd vimrc Filetype markdown nnoremap <buffer> <localleader>hh o<esc>80i=<esc>o<esc>
+autocmd vimrc Filetype markdown nnoremap <buffer> <localleader>h2 yyp<c-v>$r-
 
 " Run code in fences
 " https://github.com/dbridges/vim-markdown-runner

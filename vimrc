@@ -29,12 +29,12 @@ call plug#begin('~/.vim/plugged')
 
 " General coding
 	Plug 'tpope/vim-surround'
-	Plug 'tpope/vim-eunuch'		" Filesystem operations
+	runtime layers/filesystem.vim	
 	Plug 'tpope/vim-repeat'
 	Plug 'michaeljsmith/vim-indent-object'
 	runtime layers/commentary.vim
 	runtime layers/fugitive.vim
-	runtime layers/ale.vim
+	" runtime layers/ale.vim
 	runtime layers/coc.vim
 	runtime layers/ultisnips.vim
 	runtime layers/figlet.vim
@@ -47,6 +47,7 @@ call plug#begin('~/.vim/plugged')
 	runtime layers/webdev.vim
 	runtime layers/sxhkd.vim
 	runtime layers/json.vim
+	runtime layers/csv.vim
 	" Plug 'ap/vim-css-color'
 	" Plug 'vim-scripts/dbext.vim'
 
@@ -133,6 +134,7 @@ call which_key#register('<Space>', "g:which_key_map")
 	inoremap jk <Esc>
 	" Ctrl-space
 	inoremap <C-@> _
+	nnoremap Y y$
 	nnoremap <F12> :e $MYVIMRC<CR>
 	nnoremap <C-F12> :source $MYVIMRC<CR>
 	nnoremap <CR> o<Esc>
@@ -170,20 +172,42 @@ call which_key#register('<Space>', "g:which_key_map")
 	call Desc('c.w', 'change till _')
 
 
-	nnoremap <leader>os :set spell!<CR>
-	call Desc('o.s', 'spell')
-	nnoremap <leader>ol :set list!<CR>
+	call Desc('o.s', '+Spell')
+	nnoremap <leader>oss :setlocal spell!<CR>
+	call Desc('o.s.s', 'spell check')
+	nnoremap <leader>osc :setlocal complete+=kspell<CR>
+	call Desc('o.s.c', 'spell complete')
+	nnoremap <leader>osn :setlocal complete-=kspell<CR>
+	call Desc('o.s.n', 'spell no complete')
+	nnoremap <leader>ose :setlocal spelllang=en_us<CR>
+	call Desc('o.s.e', 'lang en_us')
+	nnoremap <leader>osp :setlocal spelllang=pl<CR>
+	call Desc('o.s.p', 'lang pl')
+
+	nnoremap <leader>ol :setlocal list!<CR>
 	call Desc('o.l', 'list')
 	nnoremap <leader>on :set relativenumber! number!<CR>
 	call Desc('o.n', 'line numbers')
-	nnoremap <leader>tcs :%s/\s\+$//e<CR>
-	call Desc('t.cs', 'remove trailing spaces')
+	nnoremap <leader>tr :%s/\s\+$//e<CR>
+	call Desc('t.r', 'remove trailing spaces')
 
+	" Move line
+	nnoremap j :m .+1<cr>==
+	nnoremap k :m .-2<cr>==
 	" Move selection
 	vnoremap j :m '>+1<cr>gv=gv
 	vnoremap k :m '<-2<cr>gv=gv
 
+	" https://vi.stackexchange.com/questions/2299/how-to-translate-unicode-escape-sequences-to-the-unicode-character
+	nnoremap <leader>tu :%s/\\u\(\x\{4\}\)/\=nr2char('0x'.submatch(1),1)/g<cr>
+	call Desc('t.u', 'unicode chars from \uXXXX')
+
 " Auto commands
 	autocmd vimrc BufWritePost vimrc source $MYVIMRC
 	autocmd vimrc BufWritePost .Xresources silent !xrdb ~/.dotfiles/xorg/.Xresources
+
+" Load projects specific configuration
+	if filereadable('.project.vim')
+		source .project.vim
+	endif
 

@@ -14,8 +14,18 @@ snippet sf "static function" b
 static func $0
 endsnippet
 
+snippet init "constructor" b
+func _init($1):
+	$0
+endsnippet
+
 snippet ready "ready" b
 func _ready():
+	$0
+endsnippet
+
+snippet input "input" b
+func _input(event):
 	$0
 endsnippet
 
@@ -24,7 +34,7 @@ func _process(delta):
 	$0
 endsnippet
 
-snippet process "proc" b
+snippet proc "proc" b
 func _process(delta):
 	$0
 endsnippet
