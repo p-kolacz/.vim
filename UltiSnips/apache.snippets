@@ -1,0 +1,16 @@
+snippet https
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+endsnippet
+
+snippet noindex
+Options -Indexes
+
+endsnippet
+
+snippet noindexhome
+Options -DirList
+
+endsnippet

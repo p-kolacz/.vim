@@ -55,6 +55,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'freitass/todo.txt-vim'
 	Plug 'vim-voom/VOoM'
 	Plug 'vifm/vifm.vim'
+	runtime layers/rest.vim
 	" Plug 'chrisbra/unicode.vim'
 
 call plug#end()
@@ -204,7 +205,7 @@ call which_key#register('<Space>', "g:which_key_map")
 
 " Auto commands
 	autocmd vimrc BufWritePost vimrc source $MYVIMRC
-	autocmd vimrc BufWritePost .Xresources silent !xrdb ~/.dotfiles/xorg/.Xresources
+	autocmd vimrc BufWritePost .Xresources silent !xrdb -merge ~/.dotfiles/xorg/.Xresources
 
 " Load projects specific configuration
 	if filereadable('.project.vim')

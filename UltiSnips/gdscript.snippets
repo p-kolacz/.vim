@@ -1,3 +1,15 @@
+snippet - "line" b
+#------------------------------------------------------------------------------#
+$0
+endsnippet
+
+snippet -- "two lines" b
+#------------------------------------------------------------------------------#
+$0
+#------------------------------------------------------------------------------#
+
+endsnippet
+
 snippet cn "class_name" b
 class_name $0
 endsnippet
@@ -44,11 +56,11 @@ print($0)
 endsnippet
 
 snippet sc "connect signal" b
-signals.connect("$1", self, "$2")$0
+Signals.connect("$1", self, "$2")$0
 endsnippet
 
 snippet es "emit signal" b
-signals.emit_signal($1)$0
+Signals.emit_signal($1)$0
 endsnippet
 
 snippet rc "remove children"
@@ -56,3 +68,4 @@ for child in get_children():
 	child.queue_free()
 $0
 endsnippet
+
