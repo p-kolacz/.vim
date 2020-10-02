@@ -14,11 +14,14 @@ Plug 'mattn/emmet-vim'
 
 " Enable just for html/css
 	let g:user_emmet_install_global = 0
-	autocmd FileType html,css EmmetInstall
+	autocmd FileType html,css,php EmmetInstall
 
 " Redefine trigger key
-" To remap the default <C-Y> leader:
-" Note that the trailing , still needs to be entered, so the new keymap would be <C-Z>,.
 	let g:user_emmet_leader_key=','
 
-" autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+" Better PHP syntax?
+Plug 'StanAngeloff/php.vim'
+
+" Fix for HTML in PHP indent
+Plug 'captbaritone/better-indent-support-for-php-with-html' 
+

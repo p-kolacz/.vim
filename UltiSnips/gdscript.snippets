@@ -19,7 +19,7 @@ onready var $0
 endsnippet
 
 snippet of "onready var find_node" b
-onready var $1 = find_node("$2")$0
+onready var $1		= find_node("$2")$0
 endsnippet
 
 snippet sf "static function" b
@@ -59,12 +59,12 @@ snippet sc "connect signal" b
 Signals.connect("$1", self, "$2")$0
 endsnippet
 
-snippet es "emit signal" b
+snippet se "emit signal" b
 Signals.emit_signal($1)$0
 endsnippet
 
 snippet rc "remove children"
-for child in get_children():
+for child in $1get_children():
 	child.queue_free()
 $0
 endsnippet

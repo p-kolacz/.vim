@@ -38,6 +38,7 @@ call plug#begin('~/.vim/plugged')
 	runtime layers/coc.vim
 	runtime layers/ultisnips.vim
 	runtime layers/figlet.vim
+	Plug 'mjbrownie/swapit'
 
 " Languages
 	Plug 'nvie/vim-flake8'
@@ -134,7 +135,7 @@ call which_key#register('<Space>', "g:which_key_map")
 	inoremap kk <Esc>
 	inoremap jk <Esc>
 	" Ctrl-space
-	inoremap <C-@> _
+	" inoremap <C-@> _
 	nnoremap Y y$
 	nnoremap <F12> :e $MYVIMRC<CR>
 	nnoremap <C-F12> :source $MYVIMRC<CR>
@@ -202,6 +203,9 @@ call which_key#register('<Space>', "g:which_key_map")
 	" https://vi.stackexchange.com/questions/2299/how-to-translate-unicode-escape-sequences-to-the-unicode-character
 	nnoremap <leader>tu :%s/\\u\(\x\{4\}\)/\=nr2char('0x'.submatch(1),1)/g<cr>
 	call Desc('t.u', 'unicode chars from \uXXXX')
+
+" Commands
+	command! -nargs=1 Silent execute 'silent !' . <q-args> | execute 'redraw!'
 
 " Auto commands
 	autocmd vimrc BufWritePost vimrc source $MYVIMRC

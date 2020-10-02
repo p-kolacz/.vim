@@ -18,12 +18,15 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
-nnoremap <C-p> :Files<cr>
+" Ctrl-space
+nnoremap <C-@> :Files<cr>
 
 nnoremap <leader>fh :History<CR>
 call Desc('f.h', 'history')
-nnoremap <leader>pf :Rg<cr>
-call Desc('p.f', 'find in files')
+nnoremap <leader>ff :Rg<cr>
+call Desc('f.f', 'find in files')
+nnoremap <leader>fc :Rgc<cr>
+call Desc('f.c', 'find in files cword')
 
 nnoremap <leader>vm :Maps<CR>
 call Desc('v.m', 'nmaps')
@@ -39,4 +42,9 @@ call Desc('v.f', 'filetypes')
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
   \   'rg --hidden --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview(), <bang>0)
+
+command! -bang -nargs=* Rgc
+  \ call fzf#vim#grep(
+  \   'rg --hidden --column --line-number --no-heading --color=always --smart-case -- '.shellescape(expand('<cword>')), 1,
   \   fzf#vim#with_preview(), <bang>0)
