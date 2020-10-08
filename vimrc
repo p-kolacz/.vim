@@ -55,7 +55,8 @@ call plug#begin('~/.vim/plugged')
 " Tools
 	Plug 'freitass/todo.txt-vim'
 	Plug 'vim-voom/VOoM'
-	Plug 'vifm/vifm.vim'
+	" Plug 'vifm/vifm.vim'
+	runtime layers/lf.vim
 	runtime layers/rest.vim
 	" Plug 'chrisbra/unicode.vim'
 
@@ -120,6 +121,7 @@ call which_key#register('<Space>', "g:which_key_map")
 	set listchars=tab:→\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨
 	" set fillchars+=vert:┋
 	set fillchars+=vert:\ 
+	set cursorline
 
 " Auto save on blur
 	autocmd vimrc FocusLost * :wa

@@ -9,5 +9,5 @@ let g:netrw_browse_split = 4	" opens new file in previous window
 let g:netrw_winsize = 20		" width in %
 " let g:netrw_altv = 1			" show on the right side
 
-nnoremap <leader>fb :Lex<cr>
-call Desc('f.b', 'Browse')
+" nnoremap <leader>fb :Lex<cr>
+" call Desc('f.b', 'Browse')
