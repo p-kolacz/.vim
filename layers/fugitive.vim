@@ -1,4 +1,7 @@
 Plug 'tpope/vim-fugitive'
-nnoremap <leader>g :G<CR>
-call Desc('g', 'Git')
+
+call Desc('g', '+Git')
+
+nnoremap <leader>gg :G<CR>
+call Desc('g.g', 'status')
 

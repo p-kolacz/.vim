@@ -20,6 +20,7 @@ call plug#begin('~/.vim/plugged')
 	" Plug 'bluz71/vim-nightfly-guicolors'
 	Plug 'ryanoasis/vim-devicons'
 	runtime layers/themes/gruvbox.vim
+	Plug 'machakann/vim-highlightedyank'
 
 " Navigation
 	" runtime layers/nerdtree.vim
@@ -39,9 +40,10 @@ call plug#begin('~/.vim/plugged')
 	runtime layers/ultisnips.vim
 	runtime layers/figlet.vim
 	Plug 'mjbrownie/swapit'
+	Plug 'tommcdo/vim-exchange'
 
 " Languages
-	Plug 'nvie/vim-flake8'
+	" Plug 'nvie/vim-flake8'
 	runtime layers/gdscript3.vim
 	runtime layers/markdown.vim
 	runtime layers/fish.vim
@@ -54,11 +56,13 @@ call plug#begin('~/.vim/plugged')
 
 " Tools
 	Plug 'freitass/todo.txt-vim'
-	Plug 'vim-voom/VOoM'
+	" Outliner
+	" Plug 'vim-voom/VOoM'
 	" Plug 'vifm/vifm.vim'
 	runtime layers/lf.vim
 	runtime layers/rest.vim
 	" Plug 'chrisbra/unicode.vim'
+	runtime layers/help.vim
 
 call plug#end()
 
@@ -118,7 +122,7 @@ call which_key#register('<Space>', "g:which_key_map")
 	set signcolumn=yes
 	set wildmenu
 	set showmatch showcmd
-	set listchars=tab:→\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨
+	set listchars=space:.,tab:→\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨
 	" set fillchars+=vert:┋
 	set fillchars+=vert:\ 
 	set cursorline
@@ -192,6 +196,10 @@ call which_key#register('<Space>', "g:which_key_map")
 	call Desc('o.l', 'list')
 	nnoremap <leader>on :set relativenumber! number!<CR>
 	call Desc('o.n', 'line numbers')
+
+	nnoremap <leader>ow :setlocal wrap!<CR>
+	call Desc('o.w', 'wrap')
+
 	nnoremap <leader>tr :%s/\s\+$//e<CR>
 	call Desc('t.r', 'remove trailing spaces')
 

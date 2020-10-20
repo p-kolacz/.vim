@@ -6,5 +6,6 @@
 			"filetypes": ["gdscript"],
 			"port": 6008
 		}
-	}
+	},
+	"python.jediEnabled": false
 }

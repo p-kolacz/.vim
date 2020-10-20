@@ -1,0 +1,4 @@
+-python	python.txt	/*-python*
+-vim	vim.txt	/*-vim*
+_help	help.txt	/*_help*
+_python-cookbook	python.txt	/*_python-cookbook*

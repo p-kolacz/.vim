@@ -1,0 +1,35 @@
+snippet =
+print($1)
+endsnippet
+
+snippet call_func_by_string
+globals()["$1"]()
+endsnippet
+
+snippet file_size
+os.path.getsize(${1:path})
+endsnippet
+
+snippet overwrite_line "" i
+print($1, end="\r")
+endsnippet
+
+snippet run "run process with input"
+subprocess.run("${1:process}", text=True, input=${2:input})
+endsnippet
+
+snippet script_filename "Script name from argparse"
+parser.prog
+endsnippet
+
+snippet script_full_path
+os.path.abspath(parser.prog)
+endsnippet
+
+snippet script_full_dir
+os.path.dirname(os.path.abspath(parser.prog))
+endsnippet
+
+snippet wait_any_key
+input("Press any key...")
+endsnippet
