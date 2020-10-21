@@ -214,6 +214,9 @@ call which_key#register('<Space>', "g:which_key_map")
 	nnoremap <leader>tu :%s/\\u\(\x\{4\}\)/\=nr2char('0x'.submatch(1),1)/g<cr>
 	call Desc('t.u', 'unicode chars from \uXXXX')
 
+	nnoremap gi :!sxiv <cfile> &<CR>
+	autocmd vimrc FileType help nnoremap <buffer> gi :silent exec '!sxiv $VIMHOME/doc/img/'.expand('%:t:r').'/<cfile> &'<CR>
+
 " Commands
 	command! -nargs=1 Silent execute 'silent !' . <q-args> | execute 'redraw!'
 

@@ -33,7 +33,7 @@ nnoremap <leader>fs :Snippets<CR>
 call Desc('f.s', 'snippets')
 
 nnoremap <leader>hh :Helptags<CR>
-call Desc('h.h', 'commands')
+call Desc('h.h', 'helptags')
 
 nnoremap <leader>gc :Commits<CR>
 call Desc('g.g', 'commits')

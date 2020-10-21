@@ -1,4 +1,8 @@
+-apache	apache.txt	/*-apache*
+-gdscript	gdscript.txt	/*-gdscript*
+-html	html.txt	/*-html*
 -python	python.txt	/*-python*
+-sql	sql.txt	/*-sql*
 -vim	vim.txt	/*-vim*
 _help	help.txt	/*_help*
 _python-cookbook	python.txt	/*_python-cookbook*
