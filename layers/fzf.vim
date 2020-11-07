@@ -19,7 +19,11 @@ let g:fzf_colors =
   \ 'header':  ['fg', 'Comment'] }
 
 " Ctrl-space
-nnoremap <C-@> :Files<cr>
+if has('nvim')
+	nnoremap <C-space> :Files<cr>
+else
+	nnoremap <C-@> :Files<cr>
+endif
 
 nnoremap <leader>fh :History<CR>
 call Desc('f.h', 'history')
@@ -49,10 +53,10 @@ call Desc('v.s', 'search history')
 nnoremap <leader>vm :Maps<CR>
 call Desc('v.m', 'nmaps')
 
-" command! -bang -nargs=* Rg
-"   \ call fzf#vim#grep(
-"   \   'rg --hidden --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
-"   \   fzf#vim#with_preview(), <bang>0)
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --hidden --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview(), <bang>0)
 
 command! -bang -nargs=* Rgc
   \ call fzf#vim#grep(

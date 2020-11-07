@@ -1,6 +1,8 @@
 -apache	apache.txt	/*-apache*
 -gdscript	gdscript.txt	/*-gdscript*
 -html	html.txt	/*-html*
+-markdown	markdown.txt	/*-markdown*
+-php	php.txt	/*-php*
 -python	python.txt	/*-python*
 -sql	sql.txt	/*-sql*
 -vim	vim.txt	/*-vim*

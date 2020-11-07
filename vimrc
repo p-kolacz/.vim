@@ -1,4 +1,3 @@
-" noremap <space> <nop>
 let mapleader=' '
 let maplocalleader=','
 set shell=bash
@@ -6,9 +5,9 @@ augroup vimrc
 	autocmd!
 augroup END
 
-
 "Layers of Vim
-call plug#begin('~/.vim/plugged')
+	runtime layers/vimonly.vim
+	call plug#begin('~/.vim/plugged')
 
 " Which key
 	runtime layers/desc.vim
@@ -19,7 +18,8 @@ call plug#begin('~/.vim/plugged')
 	runtime layers/airline.vim
 	" Plug 'bluz71/vim-nightfly-guicolors'
 	Plug 'ryanoasis/vim-devicons'
-	runtime layers/themes/gruvbox.vim
+	" runtime layers/themes/gruvbox.vim
+	runtime layers/themes/auto.vim
 	Plug 'machakann/vim-highlightedyank'
 
 " Navigation
@@ -63,25 +63,20 @@ call plug#begin('~/.vim/plugged')
 	runtime layers/rest.vim
 	" Plug 'chrisbra/unicode.vim'
 	runtime layers/help.vim
+	runtime layers/vimwiki.vim
 
-call plug#end()
+	call plug#end()
 
 runtime layers/plug.vim
 
 call which_key#register('<Space>', "g:which_key_map")
 
 " Main setup
-	set encoding=utf-8
 	scriptencoding utf-8
 	set fileformats=unix
 	language messages en_US.utf8
-	set autoread
-	set belloff=all
-	set backspace=indent,eol,start
-	set viminfo+='1000,n$XDG_DATA_HOME/viminfo
 	set splitbelow splitright
-	filetype plugin indent on
-	set exrc secure		" Enables the reading of .vimrc, .exrc and .gvimrc in the current directory.
+	" set exrc secure		" Enables the reading of .vimrc, .exrc and .gvimrc in the current directory.
 	set scrolloff=5		" top and bottom margin in rows
 	" set hidden
 
@@ -94,10 +89,9 @@ call which_key#register('<Space>', "g:which_key_map")
 	set nofoldenable foldmethod=indent
 
 " Searching
-	set ignorecase smartcase incsearch
+	set ignorecase smartcase incsearch nohlsearch
 
 " Appearance
-	syntax on
 	" Enable underline & undercurl
 	let &t_Cs = "\e[4:3m"
 	let &t_Ce = "\e[4:0m"
@@ -120,21 +114,15 @@ call which_key#register('<Space>', "g:which_key_map")
 	set nowrap
 	set number relativenumber
 	set signcolumn=yes
-	set wildmenu
 	set showmatch showcmd
 	set listchars=space:.,tab:→\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨
 	" set fillchars+=vert:┋
-	set fillchars+=vert:\ 
+	" set fillchars+=vert:\ 
 	set cursorline
 
 " Auto save on blur
 	autocmd vimrc FocusLost * :wa
 	" :autocmd vimrc FocusLost * silent! wa
-
-" Mouse
-	if &term == "alacritty"
-		set ttymouse=sgr	" Fixes mouse in alacritty
-	endif
 
 " Bindings
 	inoremap jj <Esc>
@@ -143,7 +131,7 @@ call which_key#register('<Space>', "g:which_key_map")
 	" Ctrl-space
 	" inoremap <C-@> _
 	nnoremap Y y$
-	nnoremap <F12> :e $MYVIMRC<CR>
+	nnoremap <F12> :e ~/.vim/vimrc<CR>
 	nnoremap <C-F12> :source $MYVIMRC<CR>
 	nnoremap <CR> o<Esc>
 	vnoremap <C-c> "*y :let @+=@*<CR>

@@ -25,3 +25,6 @@ Plug 'StanAngeloff/php.vim'
 " Fix for HTML in PHP indent
 Plug 'captbaritone/better-indent-support-for-php-with-html' 
 
+" try:
+" https://github.com/othree/html5.vim
+" https://github.com/othree/yajs.vim

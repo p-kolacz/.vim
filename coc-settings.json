@@ -7,5 +7,5 @@
 			"port": 6008
 		}
 	},
-	"python.jediEnabled": false
+	"python.jediEnabled": true
 }
