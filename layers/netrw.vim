@@ -3,6 +3,7 @@
 " | ' \/ -_)  _| '_\ V  V /
 " |_||_\___|\__|_|  \_/\_/
 
+let g:netrw_home=$XDG_CACHE_HOME.'/vim'
 let g:netrw_banner = 0			" disable top banner
 let g:netrw_liststyle = 3		" tree view
 let g:netrw_browse_split = 4	" opens new file in previous window

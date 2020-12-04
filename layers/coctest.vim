@@ -76,3 +76,4 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
 
+echo "AAAAAAAAAAAAAAAA"

@@ -15,6 +15,8 @@ Current file name~
 	expand('%:t:r')
     extension
 	expand('%:e')
+    full dir path
+	expand('%:p:h')
 
 
 vim:tw=78:ts=8:noet:ft=help:norl:

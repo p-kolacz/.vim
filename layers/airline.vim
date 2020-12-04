@@ -7,18 +7,18 @@
 " https://github.com/vim-airline/vim-airline/wiki/Screenshots
 
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline-themes'
 
 let g:airline_section_z = '%l/%L:%2v'
 
 " Glyphs https://github.com/ryanoasis/powerline-extra-symbols
 "                 
-	let g:airline_powerline_fonts = 1
-	let g:airline_left_sep = ''
-	let g:airline_right_sep = ''
+let g:airline_powerline_fonts = 1
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
 	 
 " Options
-	let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#whitespace#enabled = 0
 	" let g:airline_statusline_ontop=1
 
 " Smarter tab line

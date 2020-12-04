@@ -1,5 +1,14 @@
 *-php*
 
+isset dla stringa:
+
+Wyrażenie
+
+`isset($a['b'])`
+
+gdy `$a = array()` zwróci false, ale gdy `$a = 'jakis string'` zwróci 'j', ponieważ 'b' prawdopodobnie zostanie rzutowane na false a false na 0.
+
+
 ==============================================================================
 WORDPRESS
 

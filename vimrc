@@ -5,6 +5,14 @@ augroup vimrc
 	autocmd!
 augroup END
 
+if (has("termguicolors"))
+	if &term == "alacritty"
+		let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+		let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+	endif
+	set termguicolors
+endif
+
 "Layers of Vim
 	runtime layers/vimonly.vim
 	call plug#begin('~/.vim/plugged')
@@ -19,7 +27,8 @@ augroup END
 	" Plug 'bluz71/vim-nightfly-guicolors'
 	Plug 'ryanoasis/vim-devicons'
 	" runtime layers/themes/gruvbox.vim
-	runtime layers/themes/auto.vim
+	runtime layers/themes/oceanic-next.vim
+	" runtime layers/themes/auto.vim
 	Plug 'machakann/vim-highlightedyank'
 
 " Navigation
@@ -39,12 +48,12 @@ augroup END
 	runtime layers/coc.vim
 	runtime layers/ultisnips.vim
 	runtime layers/figlet.vim
-	Plug 'mjbrownie/swapit'
-	Plug 'tommcdo/vim-exchange'
+	" Plug 'mjbrownie/swapit'
+	" Plug 'tommcdo/vim-exchange'
 
 " Languages
 	" Plug 'nvie/vim-flake8'
-	runtime layers/gdscript3.vim
+	runtime layers/gdscript.vim
 	runtime layers/markdown.vim
 	runtime layers/fish.vim
 	runtime layers/webdev.vim
@@ -56,8 +65,6 @@ augroup END
 
 " Tools
 	Plug 'freitass/todo.txt-vim'
-	" Outliner
-	" Plug 'vim-voom/VOoM'
 	" Plug 'vifm/vifm.vim'
 	runtime layers/lf.vim
 	runtime layers/rest.vim
@@ -79,6 +86,8 @@ call which_key#register('<Space>', "g:which_key_map")
 	" set exrc secure		" Enables the reading of .vimrc, .exrc and .gvimrc in the current directory.
 	set scrolloff=5		" top and bottom margin in rows
 	" set hidden
+	" open help vertically hack
+	cnoreabbrev h vert h
 
 " Formating
 	set noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
@@ -95,13 +104,6 @@ call which_key#register('<Space>', "g:which_key_map")
 	" Enable underline & undercurl
 	let &t_Cs = "\e[4:3m"
 	let &t_Ce = "\e[4:0m"
-	if (has("termguicolors"))
-		if &term == "alacritty"
-			let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-			let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-		endif
-		set termguicolors
-	endif
 	execute 'colorscheme '.g:colorscheme
 
 	if &term == "xterm-kitty"
@@ -133,7 +135,7 @@ call which_key#register('<Space>', "g:which_key_map")
 	nnoremap Y y$
 	nnoremap <F12> :e ~/.vim/vimrc<CR>
 	nnoremap <C-F12> :source $MYVIMRC<CR>
-	nnoremap <CR> o<Esc>
+	" nnoremap <CR> o<Esc>
 	vnoremap <C-c> "*y :let @+=@*<CR>
 	map <C-v> "+P
 
@@ -202,8 +204,9 @@ call which_key#register('<Space>', "g:which_key_map")
 	nnoremap <leader>tu :%s/\\u\(\x\{4\}\)/\=nr2char('0x'.submatch(1),1)/g<cr>
 	call Desc('t.u', 'unicode chars from \uXXXX')
 
-	nnoremap gi :!sxiv <cfile> &<CR>
-	autocmd vimrc FileType help nnoremap <buffer> gi :silent exec '!sxiv $VIMHOME/doc/img/'.expand('%:t:r').'/<cfile> &'<CR>
+	" nnoremap gi :!sxiv <cfile> &<CR>
+	command! OpenImg execute 'silent !sxiv '.expand('%:p:h').'/'.expand('<cfile>').' &'
+	nnoremap gi :OpenImg<CR>
 
 " Commands
 	command! -nargs=1 Silent execute 'silent !' . <q-args> | execute 'redraw!'
@@ -212,7 +215,7 @@ call which_key#register('<Space>', "g:which_key_map")
 	autocmd vimrc BufWritePost vimrc source $MYVIMRC
 	autocmd vimrc BufWritePost .Xresources silent !xrdb -merge ~/.dotfiles/xorg/.Xresources
 
-" Load projects specific configuration
+" Load project specific configuration
 	if filereadable('.project.vim')
 		source .project.vim
 	endif

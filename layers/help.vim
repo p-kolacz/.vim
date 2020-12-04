@@ -15,6 +15,8 @@ function! Help()
 endfunction
 
 execute 'autocmd vimrc BufWritePost $VIMHOME/doc/*.txt helptags $VIMHOME/doc'
+autocmd vimrc FileType help nnoremap <buffer> gi :silent exec '!sxiv $VIMHOME/doc/img/'.expand('%:t:r').'/<cfile> &'<CR>
+
 nnoremap <F1> :call Help()<cr>
 nnoremap <leader>hf :call Help()<cr>
 call Desc('h.f', 'filetype notes')

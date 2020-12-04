@@ -9,7 +9,8 @@
 
 " Plug 'dkarter/bullets.vim'
 
-let g:markdown_fenced_languages =  ['bash', 'gdscript', 'html', 'css', 'php', 'sh', 'vim']
+" let g:markdown_fenced_languages =  ['bash', 'gdscript', 'html', 'css', 'php', 'sh', 'vim']
+let g:markdown_fenced_languages =  ['gdscript', 'html', 'css', 'php', 'sh', 'vim']
 
 " let g:polyglot_disabled = ['markdown']
 " Plug 'plasticboy/vim-markdown'

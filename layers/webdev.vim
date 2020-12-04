@@ -23,7 +23,7 @@ Plug 'mattn/emmet-vim'
 Plug 'StanAngeloff/php.vim'
 
 " Fix for HTML in PHP indent
-Plug 'captbaritone/better-indent-support-for-php-with-html' 
+" Plug 'captbaritone/better-indent-support-for-php-with-html' 
 
 " try:
 " https://github.com/othree/html5.vim
